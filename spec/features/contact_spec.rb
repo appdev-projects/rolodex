@@ -7,7 +7,8 @@ describe "Contact" do
     if ActiveRecord::Base.connection.table_exists? "contacts"
       contact_migrations_exists = true
     end
-    expect(contact_migrations_exists).to be(true)
+    expect(contact_migrations_exists).to be(true),
+      "Expected there to be a migration for the table but didn't find one."
   end
 end
 

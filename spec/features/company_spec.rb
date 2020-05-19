@@ -8,7 +8,8 @@ describe "Company" do
     if ActiveRecord::Base.connection.table_exists? "companies"
       company_migrations_exists = true
     end
-    expect(company_migrations_exists).to be(true)
+    expect(company_migrations_exists).to be(true),
+      "Expected there to be a migration for the table but didn't find one."
   end
 end
 
@@ -28,7 +29,8 @@ end
 describe "Company" do
   it "has an attribute called name", points: 1 do
     new_company = Company.new
-    expect(new_company.attributes).to include("name")
+    expect(new_company.attributes).to include("name"),
+      "Expected Company object to have an attr_accessor called 'name' but didn't."
   end
 end
 
